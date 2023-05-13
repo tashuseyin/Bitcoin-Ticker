@@ -2,7 +2,7 @@ plugins {
     id(Plugins.androidApplication)
     kotlin(Plugins.kotlinAndroid)
     id(Plugins.hilt)
-    id(Plugins.googleServices)
+    //id(Plugins.googleServices)
     id(Plugins.parcelizePlugin)
     kotlin(Plugins.kapt)
 }

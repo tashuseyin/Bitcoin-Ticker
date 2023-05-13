@@ -8,35 +8,37 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_16"
         android:layout_marginEnd="@dimen/margin_16"
+        android:layout_marginTop="@dimen/margin_24"
+        android:layout_marginBottom="@dimen/margin_24"
         android:orientation="vertical"
-        tools:context=".feature_firebase_auth.presentation.login.LoginFragment">
+        tools:context=".feature_firebase_auth.presentation.register.RegisterFragment">
 
         <TextView
             android:id="@+id/welcome_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_24"
             android:fontFamily="@font/inter_medium"
-            android:text="@string/welcome"
+            android:text="@string/create_new_account"
             android:textColor="@color/gray_900"
-            android:textSize="32sp" />
+            android:textSize="32sp"/>
 
         <TextView
-            android:id="@+id/login_information_message"
+            android:id="@+id/register_information_message"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_16"
             android:fontFamily="@font/inter_regular"
-            android:text="@string/login_information_message"
+            android:text="@string/register_information_message"
             android:textAlignment="textStart"
             android:textColor="@color/gray_900"
-            android:textSize="14sp" />
+            android:textSize="14sp"/>
+
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/login_email_input_layout"
+            android:id="@+id/register_email_input_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_24"
@@ -48,7 +50,7 @@
             app:boxStrokeWidthFocused="0dp">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/login_email_edittext"
+                android:id="@+id/register_email_edittext"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:background="@drawable/custom_outlined_textfield"
@@ -58,8 +60,9 @@
                 android:textColor="@color/gray_900" />
         </com.google.android.material.textfield.TextInputLayout>
 
+
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/login_password_input_layout"
+            android:id="@+id/register_password_input_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_16"
@@ -71,30 +74,60 @@
             app:boxStrokeWidthFocused="0dp">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/login_password_edittext"
+                android:id="@+id/register_password_edittext"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:background="@drawable/custom_outlined_textfield"
                 android:drawablePadding="@dimen/margin_16"
+                android:inputType="textEmailAddress"
                 android:padding="@dimen/margin_16"
                 android:textColor="@color/gray_900" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Space
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_weight="1" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/login_button"
+            android:id="@+id/register_button"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:background="@drawable/custom_button"
-            android:text="@string/login"
+            android:text="@string/register"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textAllCaps ="false"
+            android:fontFamily="@font/inter_medium"
+            app:layout_constraintBottom_toTopOf="@+id/linear_layout"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/login_password_input_layout" />
+            app:layout_constraintTop_toBottomOf="@+id/linear_layout" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/margin_16">
+
+            <TextView
+                android:id="@+id/you_already_have_an_account"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter_regular"
+                android:text="@string/you_already_have_an_account"
+                android:textColor="@color/gray_900"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_4"
+                android:fontFamily="@font/inter_medium"
+                android:text="@string/new_account_login_text"
+                android:textColor="@color/purple_600"
+                android:textSize="14sp" />
+        </LinearLayout>
     </LinearLayout>
 </ScrollView>
-
