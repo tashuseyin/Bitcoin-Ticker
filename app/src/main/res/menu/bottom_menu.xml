@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/coinListFragment"
+        android:icon="@drawable/coin"
+        android:title="@string/coins" />
+
+    <item
+        android:id="@+id/favoriteCoinsFragment"
+        android:icon="@drawable/favorite"
+        android:title="@string/favorite_coins" />
+
+    <item
+        android:id="@+id/profileFragment"
+        android:icon="@drawable/user"
+        android:title="@string/profile" />
+
+</menu>

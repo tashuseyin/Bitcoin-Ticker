@@ -2,7 +2,7 @@ plugins {
     id(Plugins.androidApplication)
     kotlin(Plugins.kotlinAndroid)
     id(Plugins.hilt)
-    //id(Plugins.googleServices)
+    id(Plugins.googleServices)
     id(Plugins.parcelizePlugin)
     kotlin(Plugins.kapt)
 }
@@ -12,7 +12,7 @@ android {
     compileSdk = Config.compileSdkVersion
 
     defaultConfig {
-        applicationId = "com.example.bitcoin_ticker"
+        applicationId = Config.applicationId
         minSdk = Config.minSdkVersion
         targetSdk = Config.targetSdkVersion
         versionCode = 1
@@ -27,7 +27,12 @@ android {
     buildTypes {
         getByName("release") {
             isMinifyEnabled = true
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+
+            buildConfigField("String", "BASE_URL", "\"https://api.coingecko.com/api/v3/\"")
         }
     }
     compileOptions {
@@ -36,6 +41,10 @@ android {
     }
     kotlinOptions {
         jvmTarget = "1.8"
+    }
+
+    buildFeatures {
+        viewBinding = true
     }
 }
 

@@ -3,12 +3,8 @@
 local.properties,0/7/0712df971a99ac4d2fccb8e0fb19f377f3374cca
 >
 app/.gitignore,5/1/51e1c5d383dfaa35e0e7e5873a0a99355a86880f
-R
-"buildSrc/src/main/java/Versions.kt,1/7/17cc39576120ea39e86f37255d0843f33952bb99
 S
 #buildSrc/src/main/java/Libraries.kt,a/e/aeefe6f3135c92ff18a77046e2ebd7f300cf95f8
-P
- buildSrc/src/main/java/Config.kt,7/5/75f16f089023bb30228b40444adf439c59643b4d
 A
 gradle.properties,2/a/2afbb999f001938c88fa43fc2ef52abf0f8213e4
 :
@@ -34,7 +30,25 @@ I
 Napp/src/androidTest/java/com/example/bitcoin_ticker/ExampleInstrumentedTest.kt,2/1/21f64fb3e80efc2b2003b0fd89ba4ddf43ef6ac6
 o
 ?app/src/test/java/com/example/bitcoin_ticker/ExampleUnitTest.kt,d/f/df181194283658ee7dcaf53d1f226652b94c6001
-l
-<app/src/main/java/com/example/bitcoin_ticker/MainActivity.kt,0/b/0bed85b299140ce190d481695908c8927b556af3
 Q
 !buildSrc/src/main/java/Plugins.kt,5/4/54fe23bd88acf636f91975e7fbad655ea7e04dc0
+œ
+lapp/src/main/java/com/example/bitcoin_ticker/feature_firebase_auth/presentation/register/RegisterFragment.kt,b/6/b6ff8d74388b7ed413cda8816fd3458fbf15aedd
+P
+ buildSrc/src/main/java/Config.kt,7/5/75f16f089023bb30228b40444adf439c59643b4d
+R
+"buildSrc/src/main/java/Versions.kt,1/7/17cc39576120ea39e86f37255d0843f33952bb99
+–
+fapp/src/main/java/com/example/bitcoin_ticker/feature_firebase_auth/presentation/login/LoginFragment.kt,e/d/ed9d1acb9ddaf9ada8800de388c36cf4c9ee0644
+•
+eapp/src/main/java/com/example/bitcoin_ticker/feature_firebase_auth/presentation/login/LoginUIState.kt,5/e/5e6bbd85163ff56c76a92f7de047142ac2daa2cc
+—
+gapp/src/main/java/com/example/bitcoin_ticker/feature_firebase_auth/presentation/login/LoginViewModel.kt,2/c/2c73d9caf85c095283ab89ed7789278b98966500
+›
+kapp/src/main/java/com/example/bitcoin_ticker/feature_firebase_auth/presentation/register/RegisterUIEvent.kt,8/6/8620bbbd7cd5fcbdc937f716daff051525887179
+›
+kapp/src/main/java/com/example/bitcoin_ticker/feature_firebase_auth/presentation/register/RegisterUIState.kt,1/1/110972b0e78976eae9a1d3d6d675791bfd4900aa
+
+mapp/src/main/java/com/example/bitcoin_ticker/feature_firebase_auth/presentation/register/RegisterViewModel.kt,1/8/18e0090ed344b32bc1c01a01e06be03907f3ceab
+•
+eapp/src/main/java/com/example/bitcoin_ticker/feature_firebase_auth/presentation/login/LoginUIEvent.kt,7/3/73ffcd994e1af6fd989925bb51fd409682ad8c64

@@ -1,4 +1,4 @@
-package com.example.bitcoin_ticker.feature_firebase_auth.presentation.login
+package com.example.bitcoin_ticker.presentation.coin_list
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,12 +7,14 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.bitcoin_ticker.R
 
-class LoginFragment : Fragment() {
+
+class CoinListFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_login, container, false)
+        return inflater.inflate(R.layout.fragment_coin_list, container, false)
     }
+
 }

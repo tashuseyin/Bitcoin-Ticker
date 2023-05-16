@@ -14,7 +14,7 @@
         android:layout_marginTop="@dimen/margin_24"
         android:layout_marginBottom="@dimen/margin_24"
         android:orientation="vertical"
-        tools:context=".feature_firebase_auth.presentation.register.RegisterFragment">
+        tools:context=".presentation.register.RegisterFragment">
 
         <TextView
             android:id="@+id/welcome_text"
@@ -41,19 +41,23 @@
             android:id="@+id/register_email_input_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
             android:layout_marginTop="@dimen/margin_24"
             android:focusable="false"
             android:focusableInTouchMode="true"
             android:hint="@string/email"
             android:textColorHint="@color/gray_600"
-            app:boxStrokeWidth="0dp"
-            app:boxStrokeWidthFocused="0dp">
+            app:boxStrokeWidth="1dp"
+            app:boxStrokeWidthFocused="1dp"
+            app:boxCornerRadiusBottomEnd="@dimen/margin_8"
+            app:boxCornerRadiusBottomStart="@dimen/margin_8"
+            app:boxCornerRadiusTopEnd="@dimen/margin_8"
+            app:boxCornerRadiusTopStart="@dimen/margin_8">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/register_email_edittext"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:background="@drawable/custom_outlined_textfield"
                 android:drawablePadding="@dimen/margin_16"
                 android:inputType="textEmailAddress"
                 android:padding="@dimen/margin_16"
@@ -65,19 +69,23 @@
             android:id="@+id/register_password_input_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
             android:layout_marginTop="@dimen/margin_16"
             android:focusable="false"
             android:focusableInTouchMode="true"
             android:hint="@string/password"
             android:textColorHint="@color/gray_600"
-            app:boxStrokeWidth="0dp"
-            app:boxStrokeWidthFocused="0dp">
+            app:boxStrokeWidth="1dp"
+            app:boxStrokeWidthFocused="1dp"
+            app:boxCornerRadiusBottomEnd="@dimen/margin_8"
+            app:boxCornerRadiusBottomStart="@dimen/margin_8"
+            app:boxCornerRadiusTopEnd="@dimen/margin_8"
+            app:boxCornerRadiusTopStart="@dimen/margin_8">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/register_password_edittext"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:background="@drawable/custom_outlined_textfield"
                 android:drawablePadding="@dimen/margin_16"
                 android:inputType="textEmailAddress"
                 android:padding="@dimen/margin_16"
