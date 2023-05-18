@@ -58,6 +58,7 @@ dependencies {
     implementation(Libraries.androidxCore)
     implementation(Libraries.androidxAppcompat)
     implementation(Libraries.androidxLifecycleRuntime)
+    implementation(Libraries.androidxFragment)
 
     //retrofit
     implementation(Libraries.retrofit)
@@ -93,4 +94,11 @@ dependencies {
     implementation(Libraries.lifecycleViewmodel)
     implementation(Libraries.lifecycleLivedata)
     implementation(Libraries.lifecycleRuntime)
+
+    //coroutines
+    implementation(Libraries.coroutinesAndroid)
+    implementation(Libraries.coroutinesPlayService)
+
+    //datastore
+    implementation(Libraries.dataStore)
 }

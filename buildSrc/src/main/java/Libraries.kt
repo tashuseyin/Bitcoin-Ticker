@@ -15,14 +15,18 @@ object Libraries {
     const val dataStore = "androidx.datastore:datastore-preferences:${Versions.dataStoreVersion}"
 
 
-    //coroutine
-    const val coroutineAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutineVersion}"
+    //coroutines
+    const val coroutinesAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutinesVersion}"
+
+    //coroutines play service
+    const val coroutinesPlayService = "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:${Versions.coroutinesPlayServiceVersion}"
+
 
     //androidX
     const val androidxCore = "androidx.core:core-ktx:${Versions.androidxCore}"
     const val androidxAppcompat = "androidx.appcompat:appcompat:${Versions.androidxAppcompat}"
     const val androidxLifecycleRuntime = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.androidxLifecycleRuntime}"
-
+    const val androidxFragment = "androidx.fragment:fragment-ktx:${Versions.androidxFragment}"
 
     //dagger - hilt
     const val hilt = "com.google.dagger:hilt-android:${Versions.hiltVersion}"

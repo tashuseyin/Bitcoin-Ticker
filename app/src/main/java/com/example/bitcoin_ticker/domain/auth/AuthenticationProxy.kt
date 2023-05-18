@@ -1,13 +1,15 @@
 package com.example.bitcoin_ticker.domain.auth
 
+import com.example.bitcoin_ticker.core.Resource
 import com.example.bitcoin_ticker.domain.model.LoginResult
 import com.example.bitcoin_ticker.domain.model.RegisterResult
 import com.example.bitcoin_ticker.domain.model.User
+import kotlinx.coroutines.flow.Flow
 
 interface AuthenticationProxy {
-    suspend fun register(email:String, password: String): RegisterResult
+    fun register(email: String, password: String): Flow<Resource<RegisterResult>>
 
-    suspend fun login(email: String, password: String): LoginResult
+    fun login(email: String, password: String): Flow<Resource<LoginResult>>
 
     fun getCurrentUser(): User?
 }

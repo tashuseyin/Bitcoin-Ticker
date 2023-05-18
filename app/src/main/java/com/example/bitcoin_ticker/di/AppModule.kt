@@ -1,5 +1,7 @@
 package com.example.bitcoin_ticker.di
 
+import com.example.bitcoin_ticker.core.validation.EmailValidation
+import com.example.bitcoin_ticker.core.validation.PasswordValidation
 import com.example.bitcoin_ticker.data.auth.FirebaseAuth
 import com.example.bitcoin_ticker.data.repository.FirebaseRepositoryImpl
 import com.example.bitcoin_ticker.domain.auth.AuthenticationProxy
@@ -21,4 +23,13 @@ object AppModule {
     @Provides
     @Singleton
     fun provideAuthenticationProxy(): AuthenticationProxy  = FirebaseAuth()
+
+    @Provides
+    @Singleton
+    fun provideEmailValidation(): EmailValidation = EmailValidation()
+
+    @Provides
+    @Singleton
+    fun providePasswordValidation(): PasswordValidation = PasswordValidation()
+
 }

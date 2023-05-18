@@ -19,4 +19,14 @@
     <string name="favorite_coins">Favorite Coins</string>
     <string name="profile">Profile</string>
     <string name="coins">Coins</string>
+
+    <string name="success_register">Account successfully created</string>
+    <string name="failure_register">Something went wrong. User registration failed.</string>
+    <string name="user_already_exists">Email already exist, you can try signing in with this email.</string>
+    <string name="login_failed">Something went wrong. Login failed.</string>
+    <string name="email_is_not_valid">Email is not valid</string>
+    <string name="success_login">Successfully Logged In</string>
+    <string name="wrong_password">The password you entered is incorrect.\nPlease try again.</string>
+    <string name="user_not_found">Could not find your Bitcoin Ticker account</string>
+    <string name="network_connection_error">Couldn\'t reach server. Check your internet connection.</string>
 </resources>
