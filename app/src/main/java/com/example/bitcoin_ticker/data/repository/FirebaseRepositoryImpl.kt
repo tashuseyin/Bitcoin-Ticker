@@ -73,7 +73,6 @@ class FirebaseRepositoryImpl @Inject constructor(
     }
 
     override fun checkCoinFavorite(id: String): Flow<Resource<Boolean>> = flow {
-
         emit(Resource.Loading())
         try {
             authenticationProxy.getCurrentUser()?.id?.let { id ->

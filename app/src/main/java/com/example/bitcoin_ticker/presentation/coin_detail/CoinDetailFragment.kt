@@ -53,7 +53,7 @@ class CoinDetailFragment : Fragment() {
                 if (it.coin != null) {
                     setUIComponent(it.coin)
                 }
-                if (it.error.isNotBlank()){
+                if (it.error.isNotBlank()) {
                     binding.errorText.text = it.error
                 }
                 binding.progressBar.isVisible = it.isLoading

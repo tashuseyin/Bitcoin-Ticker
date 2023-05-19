@@ -65,7 +65,6 @@ fun CoinDetailItemUIModel?.toFavoriteCoin(): FavoriteCoin {
     return FavoriteCoin(
         id = this?.id,
         name = this?.name,
-        symbol = this?.symbol,
-        isFavorite = this?.isFavorite ?: false
+        symbol = this?.symbol
     )
 }

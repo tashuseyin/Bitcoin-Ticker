@@ -34,8 +34,6 @@ P
  app/src/main/AndroidManifest.xml,8/c/8c55c3ccc257e5907959013f99656e4c8ec3903e
 H
 app/google-services.json,f/d/fd8d34b142d02ec743a8efefefd2c097961666e9
-‘
-aapp/src/main/java/com/example/bitcoin_ticker/presentation/favorite_coins/FavoriteCoinsFragment.kt,f/9/f9ab0737e6449cc11da0bcba1bfba563ef8a8b05
 „
 Tapp/src/main/java/com/example/bitcoin_ticker/presentation/profile/ProfileFragment.kt,1/d/1d879c47a6db178a84a97408d43bcbbfde9bea4e
 
@@ -44,8 +42,6 @@ Oapp/src/main/java/com/example/bitcoin_ticker/core/validation/EmailValidation.kt
 Rapp/src/main/java/com/example/bitcoin_ticker/core/validation/PasswordValidation.kt,f/5/f5ae5dc3087bec3783fd61d519e174b7fd018e69
 S
 #buildSrc/src/main/java/Libraries.kt,a/e/aeefe6f3135c92ff18a77046e2ebd7f300cf95f8
-€
-Papp/src/main/java/com/example/bitcoin_ticker/presentation/login/LoginFragment.kt,d/9/d9268f998d0d8f6525ec77c937a2cdbe1b306f27
 …
 Uapp/src/main/java/com/example/bitcoin_ticker/presentation/register/RegisterUIState.kt,6/e/6e46efc41a20c0c17d19589aef0ed37a8bf40eb2
 

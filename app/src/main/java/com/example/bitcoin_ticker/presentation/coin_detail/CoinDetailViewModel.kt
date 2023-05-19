@@ -9,6 +9,7 @@ import com.example.bitcoin_ticker.domain.use_case.coins.CheckFavoriteUseCase
 import com.example.bitcoin_ticker.domain.use_case.coins.RemoveFavoriteUseCase
 import com.example.bitcoin_ticker.domain.use_case.coins.GetCoinDetailUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
@@ -29,6 +30,9 @@ class CoinDetailViewModel @Inject constructor(
 
     private val _favoriteCoinStatus = MutableLiveData<Resource<Boolean?>>()
     val favoriteCoinStatus: LiveData<Resource<Boolean?>> get() = _favoriteCoinStatus
+
+    private val _isCheckFavoriteCoin = MutableLiveData<Resource<Boolean?>>()
+    val isCheckFavoriteCoin: LiveData<Resource<Boolean?>> get() = _isCheckFavoriteCoin
 
     init {
         savedStateHandle.get<String>(Constant.COIN_ID)?.let {
