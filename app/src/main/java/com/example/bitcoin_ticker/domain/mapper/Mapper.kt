@@ -4,6 +4,7 @@ import com.example.bitcoin_ticker.data.local.entity.CoinListItemEntity
 import com.example.bitcoin_ticker.data.remote.model.*
 import com.example.bitcoin_ticker.domain.model.CoinDetailItemUIModel
 import com.example.bitcoin_ticker.domain.model.CoinListItemUIModel
+import com.example.bitcoin_ticker.domain.model.FavoriteCoin
 
 fun List<CoinListItem>.toDomain(): List<CoinListItemUIModel> {
     return if (this.isEmpty()) {
@@ -57,5 +58,14 @@ fun CoinDetailItem.toDomain(): CoinDetailItemUIModel {
         image = this.image,
         marketData = this.marketData,
         lastUpdated = this.lastUpdated,
+    )
+}
+
+fun CoinDetailItemUIModel?.toFavoriteCoin(): FavoriteCoin {
+    return FavoriteCoin(
+        id = this?.id,
+        name = this?.name,
+        symbol = this?.symbol,
+        isFavorite = this?.isFavorite ?: false
     )
 }

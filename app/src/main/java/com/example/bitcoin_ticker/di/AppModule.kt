@@ -14,6 +14,7 @@ import com.example.bitcoin_ticker.domain.datasource.local.LocalDataSource
 import com.example.bitcoin_ticker.domain.datasource.remote.RemoteDataSource
 import com.example.bitcoin_ticker.domain.repository.CoinRepository
 import com.example.bitcoin_ticker.domain.repository.FirebaseRepository
+import com.google.firebase.firestore.FirebaseFirestore
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -26,11 +27,18 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideFirebaseRepository(): FirebaseRepository = FirebaseRepositoryImpl()
+    fun provideFirebaseFirestore(): FirebaseFirestore = FirebaseFirestore.getInstance()
 
     @Provides
     @Singleton
-    fun provideAuthenticationProxy(): AuthenticationProxy  = FirebaseAuth()
+    fun provideAuthenticationProxy(): AuthenticationProxy = FirebaseAuth()
+
+    @Provides
+    @Singleton
+    fun provideFirebaseRepository(
+        authenticationProxy: AuthenticationProxy,
+        firebaseFireStore: FirebaseFirestore
+    ): FirebaseRepository = FirebaseRepositoryImpl(authenticationProxy, firebaseFireStore)
 
     @Provides
     @Singleton
@@ -42,7 +50,8 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideRemoteDataSource(coinApiService: CoinApiService): RemoteDataSource = RemoteDataSourceImpl(coinApiService)
+    fun provideRemoteDataSource(coinApiService: CoinApiService): RemoteDataSource =
+        RemoteDataSourceImpl(coinApiService)
 
     @Provides
     @Singleton
@@ -50,5 +59,8 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideCoinRepository(remoteDataSource: RemoteDataSource, localDataSource: LocalDataSource): CoinRepository = CoinRepositoryImpl(remoteDataSource, localDataSource)
+    fun provideCoinRepository(
+        remoteDataSource: RemoteDataSource,
+        localDataSource: LocalDataSource
+    ): CoinRepository = CoinRepositoryImpl(remoteDataSource, localDataSource)
 }

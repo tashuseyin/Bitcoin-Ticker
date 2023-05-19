@@ -30,4 +30,9 @@
     <string name="user_not_found">Could not find your Bitcoin Ticker account</string>
     <string name="network_connection_error">Couldn\'t reach server. Check your internet connection.</string>
     <string name="search">Search</string>
+    <string name="refresh_time">Refresh Time</string>
+    <string name="set_time">Set Time</string>
+    <string name="hashing_algrotihm">Hashing Algrotihm</string>
+    <string name="price_change_percetange_in_24_hours">Price Change Percetange in 24 hours</string>
+    <string name="description">Description</string>
 </resources>

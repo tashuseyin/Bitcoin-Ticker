@@ -5,10 +5,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.bitcoin_ticker.core.Resource
 import com.example.bitcoin_ticker.domain.use_case.coins.GetCoinListUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.update
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.flow.*
 import javax.inject.Inject
 
 @HiltViewModel
@@ -33,26 +30,28 @@ class CoinListViewModel @Inject constructor(
 
 
     private fun getCoins() {
-        viewModelScope.launch {
-            getCoinListUseCase.invoke().collect { result ->
-                when (result) {
-                    is Resource.Loading -> {
-                        _uiState.update { it.copy(isLoading = true) }
-                    }
-                    is Resource.Success -> {
-                        _uiState.update { it.copy(coins = result.data ?: emptyList(), isLoading = false) }
-                    }
-                    is Resource.Error -> {
-                        _uiState.update {
-                            it.copy(
-                                error = result.message ?: "An unexcepted error occurred",
-                                isLoading = false
-                            )
-                        }
+        getCoinListUseCase().onEach { result ->
+            when (result) {
+                is Resource.Loading -> {
+                    _uiState.update { it.copy(isLoading = true) }
+                }
+                is Resource.Success -> {
+                    _uiState.update {
+                        it.copy(
+                            coins = result.data ?: emptyList(),
+                            isLoading = false
+                        )
                     }
                 }
-
+                is Resource.Error -> {
+                    _uiState.update {
+                        it.copy(
+                            error = result.message ?: "An unexpected error occurred",
+                            isLoading = false
+                        )
+                    }
+                }
             }
-        }
+        }.launchIn(viewModelScope)
     }
 }

@@ -5,9 +5,16 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
+import com.example.bitcoin_ticker.R
+import com.example.bitcoin_ticker.core.Constant
+import com.example.bitcoin_ticker.core.Resource
+import com.example.bitcoin_ticker.core.extension.loadImageView
 import com.example.bitcoin_ticker.databinding.FragmentCoinDetailBinding
+import com.example.bitcoin_ticker.domain.model.CoinDetailItemUIModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -27,18 +34,67 @@ class CoinDetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        observeUIState()
+        eventListener()
+        observeViewModel()
     }
 
-    private fun observeUIState() {
+    private fun eventListener() {
+        binding.saveIcon.setOnClickListener {
+            coinDetailViewModel.onEvent(CoinDetailUIEvent.OnClickFavoriteButton)
+        }
+        binding.closeIcon.setOnClickListener {
+            findNavController().navigate(CoinDetailFragmentDirections.actionCoinDetailFragmentToCoinListFragment())
+        }
+    }
+
+    private fun observeViewModel() {
         lifecycleScope.launch {
             coinDetailViewModel.uiState.collect {
-                //progress ekle
-                // error ekle
                 if (it.coin != null) {
-                    binding.name.text = it.coin.name
+                    setUIComponent(it.coin)
+                }
+                if (it.error.isNotBlank()){
+                    binding.errorText.text = it.error
+                }
+                binding.progressBar.isVisible = it.isLoading
+            }
+        }
+
+        coinDetailViewModel.favoriteCoinStatus.observe(viewLifecycleOwner) {
+            when (it) {
+                is Resource.Loading -> {
+                    binding.progressBar.isVisible = true
+                }
+                is Resource.Success -> {
+                    binding.progressBar.isVisible = false
+                    it.data?.let { bool ->
+                        updateSaveIcon(bool)
+                    }
+                }
+                is Resource.Error -> {
+                    binding.progressBar.isVisible = false
+                    binding.errorText.text = it.message
                 }
             }
+        }
+    }
+
+    private fun updateSaveIcon(bool: Boolean) {
+        if (bool) {
+            binding.saveIcon.setImageResource(R.drawable.bookmark_fill)
+        } else {
+            binding.saveIcon.setImageResource(R.drawable.bookmark)
+        }
+    }
+
+    private fun setUIComponent(coin: CoinDetailItemUIModel?) {
+        binding.apply {
+            coinName.text = coin?.name ?: Constant.NOTHING
+            coinSymbol.text = coin?.symbol ?: Constant.NOTHING
+            coinImage.loadImageView(coin?.image?.large)
+            coinPrice.text = coin?.marketData?.currentPrice?.usd.toString()
+            hashingAlgorithm.text = coin?.hashingAlgorithm ?: Constant.NOTHING
+            description.text = coin?.description?.en ?: Constant.NOTHING
         }
     }
 

@@ -12,4 +12,6 @@ interface AuthenticationProxy {
     fun login(email: String, password: String): Flow<Resource<LoginResult>>
 
     fun getCurrentUser(): User?
+
+    suspend fun logout()
 }

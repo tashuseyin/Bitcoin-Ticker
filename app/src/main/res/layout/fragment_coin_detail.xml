@@ -7,6 +7,34 @@
     android:layout_margin="@dimen/margin_8"
     tools:context=".presentation.coin_detail.CoinDetailFragment">
 
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:elevation="1dp"
+        android:indeterminateTint="@color/purple_600"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/error_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_8"
+        android:gravity="center"
+        android:textSize="16sp"
+        android:fontFamily="@font/inter_medium"
+        android:textColor="@color/gray_900"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageView
         android:id="@+id/close_icon"
         android:layout_width="24dp"
@@ -39,7 +67,7 @@
         app:tint="@color/purple_600" />
 
     <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/icon_image"
+        android:id="@+id/coin_image"
         android:layout_width="160dp"
         android:layout_height="160dp"
         android:layout_marginStart="@dimen/margin_8"
@@ -50,58 +78,134 @@
         app:shapeAppearanceOverlay="@style/RoundedSquare"/>
 
     <TextView
-        android:id="@+id/price"
+        android:id="@+id/coin_price"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="@dimen/margin_24"
         android:layout_marginStart="@dimen/margin_8"
         android:layout_marginEnd="@dimen/margin_8"
-        app:layout_constraintStart_toEndOf="@+id/icon_image"
-        app:layout_constraintTop_toTopOf="@+id/icon_image" />
+        android:text="Price"
+        android:gravity="center"
+        android:textSize="16sp"
+        android:fontFamily="@font/inter_medium"
+        android:textColor="@color/gray_900"
+        app:layout_constraintStart_toEndOf="@+id/coin_image"
+        app:layout_constraintTop_toTopOf="@+id/coin_image" />
 
     <TextView
-        android:id="@+id/name"
+        android:id="@+id/coin_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_8"
         android:layout_marginEnd="@dimen/margin_8"
         android:layout_marginTop="@dimen/margin_8"
+        android:text="Price"
+        android:gravity="center"
+        android:textSize="16sp"
+        android:fontFamily="@font/inter_medium"
+        android:textColor="@color/gray_900"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/icon_image"
-        app:layout_constraintTop_toBottomOf="@+id/price" />
+        app:layout_constraintStart_toEndOf="@+id/coin_image"
+        app:layout_constraintTop_toBottomOf="@+id/coin_price" />
 
     <TextView
-        android:id="@+id/symbol"
+        android:id="@+id/coin_symbol"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_8"
         android:layout_marginEnd="@dimen/margin_8"
         android:layout_marginTop="8dp"
+        android:text="Price"
+        android:gravity="center"
+        android:textSize="16sp"
+        android:fontFamily="@font/inter_medium"
+        android:textColor="@color/gray_900"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/icon_image"
-        app:layout_constraintTop_toBottomOf="@+id/name" />
+        app:layout_constraintStart_toEndOf="@+id/coin_image"
+        app:layout_constraintTop_toBottomOf="@+id/coin_name" />
+
 
     <TextView
-        android:id="@+id/market"
+        android:id="@+id/textView1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/inter_bold"
+        android:text="@string/price_change_percetange_in_24_hours"
+        android:textColor="@color/purple_600"
+        android:textSize="16sp"
+        android:layout_marginTop="@dimen/margin_16"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/coin_image" />
+
+    <TextView
+        android:id="@+id/price_percentage"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/inter_medium"
+        android:text="Price"
+        android:layout_marginTop="@dimen/margin_4"
+        android:textColor="@color/gray_900"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/textView1"
+        app:layout_constraintStart_toStartOf="@+id/textView1"
+        app:layout_constraintTop_toBottomOf="@+id/textView1" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/inter_bold"
+        android:text="@string/hashing_algrotihm"
+        android:textColor="@color/purple_600"
+        android:textSize="16sp"
+        android:layout_marginTop="@dimen/margin_16"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/price_percentage" />
+
+    <TextView
+        android:id="@+id/hashing_algorithm"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_8"
         android:layout_marginEnd="@dimen/margin_8"
-        android:layout_marginTop="@dimen/margin_8"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/icon_image"
-        app:layout_constraintTop_toBottomOf="@+id/symbol" />
+        android:layout_marginTop="8dp"
+        android:text="Price"
+        android:textSize="16sp"
+        android:fontFamily="@font/inter_medium"
+        android:textColor="@color/gray_900"
+        app:layout_constraintEnd_toEndOf="@+id/textView2"
+        app:layout_constraintStart_toStartOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <TextView
+        android:id="@+id/textView3"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/margin_8"
+        android:fontFamily="@font/inter_bold"
+        android:text="@string/description"
+        android:textColor="@color/purple_600"
+        android:textSize="16sp"
         android:layout_marginTop="@dimen/margin_16"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/icon_image"
-        app:layout_constraintTop_toBottomOf="@+id/icon_image" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hashing_algorithm" />
+
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/inter_medium"
+        android:text="Price"
+        android:textColor="@color/gray_900"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/textView3"
+        app:layout_constraintStart_toStartOf="@+id/textView3"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -46,4 +46,8 @@ class FirebaseAuth : AuthenticationProxy {
         val firebaseUser = Firebase.auth.currentUser
         return User(firebaseUser?.uid ?: "", firebaseUser?.email ?: "")
     }
+
+    override suspend fun logout() {
+        Firebase.auth.signOut()
+    }
 }

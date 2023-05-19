@@ -34,7 +34,9 @@
         tools:layout="@layout/fragment_coin_list" >
         <action
             android:id="@+id/action_coinListFragment_to_coinDetailFragment"
-            app:destination="@id/coinDetailFragment" />
+            app:destination="@id/coinDetailFragment"
+            app:popUpTo="@id/coinListFragment"
+            app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_coinListFragment_to_searchFragment"
             app:destination="@id/searchFragment" />
@@ -47,15 +49,9 @@
         <argument
             android:name="coinId"
             app:argType="string" />
-    </fragment>
-    <fragment
-        android:id="@+id/profileFragment"
-        android:name="com.example.bitcoin_ticker.presentation.profile.ProfileFragment"
-        android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" >
         <action
-            android:id="@+id/action_profileFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
+            android:id="@+id/action_coinDetailFragment_to_coinListFragment"
+            app:destination="@id/coinListFragment" />
     </fragment>
     <fragment
         android:id="@+id/favoriteCoinsFragment"

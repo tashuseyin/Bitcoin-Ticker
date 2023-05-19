@@ -38,8 +38,6 @@ H
 aapp/src/main/java/com/example/bitcoin_ticker/presentation/favorite_coins/FavoriteCoinsFragment.kt,f/9/f9ab0737e6449cc11da0bcba1bfba563ef8a8b05
 „
 Tapp/src/main/java/com/example/bitcoin_ticker/presentation/profile/ProfileFragment.kt,1/d/1d879c47a6db178a84a97408d43bcbbfde9bea4e
-l
-<app/src/main/java/com/example/bitcoin_ticker/MainActivity.kt,0/b/0bed85b299140ce190d481695908c8927b556af3
 
 Oapp/src/main/java/com/example/bitcoin_ticker/core/validation/EmailValidation.kt,9/1/91e0d2587e021d7ed58131afce42855bcf63d8e1
 ‚
@@ -52,14 +50,6 @@ Papp/src/main/java/com/example/bitcoin_ticker/presentation/login/LoginFragment.k
 Uapp/src/main/java/com/example/bitcoin_ticker/presentation/register/RegisterUIState.kt,6/e/6e46efc41a20c0c17d19589aef0ed37a8bf40eb2
 
 Oapp/src/main/java/com/example/bitcoin_ticker/presentation/login/LoginUIState.kt,e/1/e118e892537e44ee5ca8cdf0a276edc6fca30897
-v
-Fapp/src/main/java/com/example/bitcoin_ticker/data/auth/FirebaseAuth.kt,9/1/911c74d5ac44dc8f8001eb6509d3457c7d173de2
-†
-Vapp/src/main/java/com/example/bitcoin_ticker/data/repository/FirebaseRepositoryImpl.kt,6/e/6eba0bdc774158215a2594e2bf48249881819ede
-„
-Tapp/src/main/java/com/example/bitcoin_ticker/domain/repository/FirebaseRepository.kt,2/e/2ec9c3f35a54fe9852fe1411004143b29963ef47
-
-Oapp/src/main/java/com/example/bitcoin_ticker/domain/auth/AuthenticationProxy.kt,e/6/e63a78b6364c852134cf8718d325db7cf7e65e57
 …
 Uapp/src/main/java/com/example/bitcoin_ticker/presentation/register/RegisterUIEvent.kt,6/1/611139626b54bcf6f8a5471bc0f057e4ef1ccbd0
 †

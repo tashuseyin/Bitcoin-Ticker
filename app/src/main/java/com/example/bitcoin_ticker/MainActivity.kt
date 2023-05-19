@@ -27,15 +27,14 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.navigation_fragment_activity_main)
         AppBarConfiguration.Builder(
             R.id.coinListFragment,
-            R.id.favoriteCoinsFragment,
-            R.id.profileFragment
+            R.id.favoriteCoinsFragment
         ).build()
 
         binding.bottomNavigation.setupWithNavController(navController)
     }
 
     private fun controlBottomNavigationVisibility() {
-        val bottomNavDestinations = setOf(R.id.coinListFragment, R.id.favoriteCoinsFragment, R.id.profileFragment)
+        val bottomNavDestinations = setOf(R.id.coinListFragment, R.id.favoriteCoinsFragment)
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.navigation_fragment_activity_main) as NavHostFragment
 
         navHostFragment.navController.addOnDestinationChangedListener { _, destination, _ ->
