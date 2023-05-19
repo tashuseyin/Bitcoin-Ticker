@@ -1,4 +1,4 @@
-package com.example.bitcoin_ticker.domain.model
+package com.example.bitcoin_ticker.data.auth.model
 
 import com.example.bitcoin_ticker.R
 

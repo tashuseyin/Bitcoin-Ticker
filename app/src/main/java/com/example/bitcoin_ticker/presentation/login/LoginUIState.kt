@@ -1,7 +1,7 @@
 package com.example.bitcoin_ticker.presentation.login
 
 import com.example.bitcoin_ticker.core.Constant
-import com.example.bitcoin_ticker.domain.model.LoginResult
+import com.example.bitcoin_ticker.data.auth.model.LoginResult
 
 data class LoginUIState(
     val isLoading: Boolean = false,

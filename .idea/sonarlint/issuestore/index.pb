@@ -38,8 +38,6 @@ P
  app/src/main/AndroidManifest.xml,8/c/8c55c3ccc257e5907959013f99656e4c8ec3903e
 ‹
 [app/src/main/java/com/example/bitcoin_ticker/presentation/coin_detail/CoinDetailFragment.kt,3/e/3efb43df421b21d39950b0cfd1108cebaa444a2b
-‡
-Wapp/src/main/java/com/example/bitcoin_ticker/presentation/coin_list/CoinListFragment.kt,3/1/31d025264663b13f9eb94765bba6b2e59a59d2f8
 ‘
 aapp/src/main/java/com/example/bitcoin_ticker/presentation/favorite_coins/FavoriteCoinsFragment.kt,f/9/f9ab0737e6449cc11da0bcba1bfba563ef8a8b05
 „

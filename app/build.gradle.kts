@@ -34,6 +34,9 @@ android {
 
             buildConfigField("String", "BASE_URL", "\"https://api.coingecko.com/api/v3/\"")
         }
+        getByName("debug") {
+            buildConfigField("String", "BASE_URL", "\"https://api.coingecko.com/api/v3/\"")
+        }
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8

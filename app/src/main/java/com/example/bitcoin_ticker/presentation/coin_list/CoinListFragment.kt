@@ -5,16 +5,54 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.bitcoin_ticker.R
+import android.widget.Toast
+import androidx.core.view.isVisible
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
+import com.example.bitcoin_ticker.databinding.FragmentCoinListBinding
+import com.example.bitcoin_ticker.presentation.coin_list.adapter.CoinListAdapter
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
-
+@AndroidEntryPoint
 class CoinListFragment : Fragment() {
+    private var _binding: FragmentCoinListBinding? = null
+    private val binding get() = _binding!!
+    private val coinListViewModel: CoinListViewModel by viewModels()
+    private val coinListAdapter: CoinListAdapter = CoinListAdapter()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_coin_list, container, false)
+    ): View {
+        _binding = FragmentCoinListBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.recyclerView.adapter = coinListAdapter
+        observeUIState()
+    }
+
+
+    private fun observeUIState() {
+        lifecycleScope.launch {
+            coinListViewModel.uiState.collect { uiState ->
+                if (uiState.coins.isNotEmpty()) {
+                    coinListAdapter.submitList(uiState.coins)
+                }
+                if (uiState.error.isNotBlank()) {
+                    Toast.makeText(context, uiState.error, Toast.LENGTH_SHORT).show()
+                }
+                binding.progressBar.isVisible = uiState.isLoading
+            }
+        }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 }

@@ -2,9 +2,9 @@ package com.example.bitcoin_ticker.data.auth
 
 import com.example.bitcoin_ticker.core.Resource
 import com.example.bitcoin_ticker.domain.auth.AuthenticationProxy
-import com.example.bitcoin_ticker.domain.model.LoginResult
-import com.example.bitcoin_ticker.domain.model.RegisterResult
-import com.example.bitcoin_ticker.domain.model.User
+import com.example.bitcoin_ticker.data.auth.model.LoginResult
+import com.example.bitcoin_ticker.data.auth.model.RegisterResult
+import com.example.bitcoin_ticker.data.auth.model.User
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 import com.google.firebase.auth.FirebaseAuthInvalidUserException
 import com.google.firebase.auth.FirebaseAuthUserCollisionException

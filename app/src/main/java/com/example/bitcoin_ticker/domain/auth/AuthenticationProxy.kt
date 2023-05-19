@@ -1,9 +1,9 @@
 package com.example.bitcoin_ticker.domain.auth
 
 import com.example.bitcoin_ticker.core.Resource
-import com.example.bitcoin_ticker.domain.model.LoginResult
-import com.example.bitcoin_ticker.domain.model.RegisterResult
-import com.example.bitcoin_ticker.domain.model.User
+import com.example.bitcoin_ticker.data.auth.model.LoginResult
+import com.example.bitcoin_ticker.data.auth.model.RegisterResult
+import com.example.bitcoin_ticker.data.auth.model.User
 import kotlinx.coroutines.flow.Flow
 
 interface AuthenticationProxy {

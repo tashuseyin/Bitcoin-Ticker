@@ -48,8 +48,6 @@ l
 <app/src/main/java/com/example/bitcoin_ticker/MainActivity.kt,0/b/0bed85b299140ce190d481695908c8927b556af3
 ‹
 [app/src/main/java/com/example/bitcoin_ticker/presentation/coin_detail/CoinDetailFragment.kt,3/e/3efb43df421b21d39950b0cfd1108cebaa444a2b
-‡
-Wapp/src/main/java/com/example/bitcoin_ticker/presentation/coin_list/CoinListFragment.kt,3/1/31d025264663b13f9eb94765bba6b2e59a59d2f8
 
 Oapp/src/main/java/com/example/bitcoin_ticker/core/validation/EmailValidation.kt,9/1/91e0d2587e021d7ed58131afce42855bcf63d8e1
 Q

@@ -1,9 +1,7 @@
 package com.example.bitcoin_ticker.presentation.register
 
 import com.example.bitcoin_ticker.core.Constant
-import com.example.bitcoin_ticker.core.validation.PasswordRule
-import com.example.bitcoin_ticker.domain.model.LoginResult
-import com.example.bitcoin_ticker.domain.model.RegisterResult
+import com.example.bitcoin_ticker.data.auth.model.RegisterResult
 
 data class RegisterUIState(
     val isLoading: Boolean = false,
