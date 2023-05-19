@@ -35,12 +35,19 @@
         <action
             android:id="@+id/action_coinListFragment_to_coinDetailFragment"
             app:destination="@id/coinDetailFragment" />
+        <action
+            android:id="@+id/action_coinListFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
     </fragment>
     <fragment
         android:id="@+id/coinDetailFragment"
         android:name="com.example.bitcoin_ticker.presentation.coin_detail.CoinDetailFragment"
         android:label="fragment_coin_detail"
-        tools:layout="@layout/fragment_coin_detail" />
+        tools:layout="@layout/fragment_coin_detail" >
+        <argument
+            android:name="coinId"
+            app:argType="string" />
+    </fragment>
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.example.bitcoin_ticker.presentation.profile.ProfileFragment"
@@ -59,4 +66,9 @@
             android:id="@+id/action_favoriteCoinsFragment_to_coinDetailFragment"
             app:destination="@id/coinDetailFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.example.bitcoin_ticker.presentation.search.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" />
 </navigation>

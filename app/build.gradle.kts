@@ -4,6 +4,7 @@ plugins {
     id(Plugins.hilt)
     id(Plugins.googleServices)
     id(Plugins.parcelizePlugin)
+    id(Plugins.navigation)
     kotlin(Plugins.kapt)
 }
 
@@ -104,4 +105,8 @@ dependencies {
 
     //datastore
     implementation(Libraries.dataStore)
+
+    //room
+    implementation(Libraries.room)
+    kapt(Libraries.roomKapt)
 }

@@ -11,5 +11,5 @@ interface CoinApiService {
     suspend fun getAllCoins(): List<CoinListItem>
 
     @GET("coins/{id}")
-    suspend fun getCoinByID(@Path("id") id: String): List<CoinDetailItem>
+    suspend fun getCoinByID(@Path("id") id: String): CoinDetailItem
 }

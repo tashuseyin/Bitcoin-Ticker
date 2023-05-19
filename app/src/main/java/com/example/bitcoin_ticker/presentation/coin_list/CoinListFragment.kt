@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import com.example.bitcoin_ticker.databinding.FragmentCoinListBinding
 import com.example.bitcoin_ticker.presentation.coin_list.adapter.CoinListAdapter
 import dagger.hilt.android.AndroidEntryPoint
@@ -34,6 +35,13 @@ class CoinListFragment : Fragment() {
 
         binding.recyclerView.adapter = coinListAdapter
         observeUIState()
+        eventListener()
+    }
+
+    private fun eventListener() {
+        coinListAdapter.onItemClick = {
+            findNavController().navigate(CoinListFragmentDirections.actionCoinListFragmentToCoinDetailFragment(it))
+        }
     }
 
 

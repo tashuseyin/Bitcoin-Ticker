@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.bitcoin_ticker.core.Resource
 import com.example.bitcoin_ticker.core.validation.EmailValidation
-import com.example.bitcoin_ticker.domain.use_case.login.LoginUseCase
+import com.example.bitcoin_ticker.domain.use_case.auth.LoginUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow

@@ -3,7 +3,7 @@ package com.example.bitcoin_ticker.presentation.coin_list
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.bitcoin_ticker.core.Resource
-import com.example.bitcoin_ticker.domain.use_case.coin_list.GetCoinListUseCase
+import com.example.bitcoin_ticker.domain.use_case.coins.GetCoinListUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow

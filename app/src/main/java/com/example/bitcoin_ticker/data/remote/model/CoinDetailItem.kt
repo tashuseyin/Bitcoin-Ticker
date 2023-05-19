@@ -8,6 +8,10 @@ data class CoinDetailItem(
     val id: String,
     @SerializedName("image")
     val image: Image,
+    @SerializedName("description")
+    val description: Description,
+    @SerializedName("hashing_algorithm")
+    val hashingAlgorithm: String?,
     @SerializedName("last_updated")
     val lastUpdated: String,
     @SerializedName("market_data")

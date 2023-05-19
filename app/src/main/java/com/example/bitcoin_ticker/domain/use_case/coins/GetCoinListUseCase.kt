@@ -1,4 +1,4 @@
-package com.example.bitcoin_ticker.domain.use_case.coin_list
+package com.example.bitcoin_ticker.domain.use_case.coins
 
 import com.example.bitcoin_ticker.core.Resource
 import com.example.bitcoin_ticker.domain.mapper.toDomain
@@ -13,10 +13,9 @@ import javax.inject.Inject
 class GetCoinListUseCase @Inject constructor(private val coinRepository: CoinRepository) {
 
     operator fun invoke(): Flow<Resource<List<CoinListItemUIModel>>> = flow {
+        emit(Resource.Loading())
         try {
-            emit(Resource.Loading())
-            val coins = coinRepository.getAllCoins().toDomain()
-            emit(Resource.Success(coins))
+            emit(Resource.Success(coinRepository.getAllCoins().toDomain()))
         } catch (e: HttpException) {
             emit(Resource.Error(e.localizedMessage ?: "An unexpected error occurred"))
         } catch (e: IOException) {

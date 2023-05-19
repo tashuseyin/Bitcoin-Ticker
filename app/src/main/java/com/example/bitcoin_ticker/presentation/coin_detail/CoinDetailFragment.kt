@@ -5,14 +5,45 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.bitcoin_ticker.R
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
+import com.example.bitcoin_ticker.databinding.FragmentCoinDetailBinding
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class CoinDetailFragment : Fragment() {
+    private var _binding: FragmentCoinDetailBinding? = null
+    private val binding get() = _binding!!
+    private val coinDetailViewModel: CoinDetailViewModel by viewModels()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_coin_detail, container, false)
+    ): View {
+        _binding = FragmentCoinDetailBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        observeUIState()
+    }
+
+    private fun observeUIState() {
+        lifecycleScope.launch {
+            coinDetailViewModel.uiState.collect {
+                //progress ekle
+                // error ekle
+                if (it.coin != null) {
+                    binding.name.text = it.coin.name
+                }
+            }
+        }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

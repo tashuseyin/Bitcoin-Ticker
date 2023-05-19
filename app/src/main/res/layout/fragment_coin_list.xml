@@ -5,9 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="8dp"
+    android:layout_margin="@dimen/margin_8"
     tools:context=".presentation.coin_list.CoinListFragment">
-
 
     <EditText
         android:id="@+id/search_view"
@@ -20,7 +19,7 @@
         android:hint="@string/search"
         android:drawableEnd="@drawable/magnifying_glass"
         android:queryBackground="@null"
-        android:textColor="@color/white"
+        android:textColor="@color/gray_900"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"

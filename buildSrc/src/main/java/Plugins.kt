@@ -5,4 +5,5 @@ object Plugins {
     const val parcelizePlugin = "kotlin-parcelize"
     const val kapt = "kapt"
     const val kotlinAndroid = "android"
+    const val navigation = "androidx.navigation.safeargs.kotlin"
 }

@@ -8,7 +8,7 @@ import com.example.bitcoin_ticker.core.Resource
 import com.example.bitcoin_ticker.core.validation.EmailValidation
 import com.example.bitcoin_ticker.core.validation.PasswordRule
 import com.example.bitcoin_ticker.core.validation.PasswordValidation
-import com.example.bitcoin_ticker.domain.use_case.register.RegisterUseCase
+import com.example.bitcoin_ticker.domain.use_case.auth.RegisterUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch

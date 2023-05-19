@@ -1,4 +1,4 @@
-package com.example.bitcoin_ticker.domain.use_case.login
+package com.example.bitcoin_ticker.domain.use_case.auth
 
 import com.example.bitcoin_ticker.domain.auth.AuthenticationProxy
 import javax.inject.Inject
