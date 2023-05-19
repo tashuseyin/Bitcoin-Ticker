@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import com.example.bitcoin_ticker.R
 import com.example.bitcoin_ticker.databinding.FragmentFavoriteCoinsBinding
 import com.example.bitcoin_ticker.presentation.favorite_coins.adapter.FavoriteCoinsAdapter
 import dagger.hilt.android.AndroidEntryPoint
@@ -43,9 +44,11 @@ class FavoriteCoinsFragment : Fragment() {
         lifecycleScope.launch {
             favoriteCoinsViewModel.uiState.collect { uiState ->
                 if (uiState.coins.isNotEmpty()) {
+                    binding.errorLayout.isVisible = false
                     favoriteCoinsAdapter.submitList(uiState.coins)
                 }
                 if (uiState.error.isNotBlank()) {
+                    binding.errorLayout.isVisible = true
                     binding.errorText.text = uiState.error
                 }
                 binding.progressBar.isVisible = uiState.isLoading

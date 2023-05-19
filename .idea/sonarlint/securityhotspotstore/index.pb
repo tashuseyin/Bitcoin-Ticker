@@ -30,8 +30,6 @@ S
 #.idea/sonarlint/issuestore/index.pb,9/f/9fe84ebb15faf917b7def6236dba604453cc61e0
 P
  buildSrc/src/main/java/Config.kt,7/5/75f16f089023bb30228b40444adf439c59643b4d
-P
- app/src/main/AndroidManifest.xml,8/c/8c55c3ccc257e5907959013f99656e4c8ec3903e
 H
 app/google-services.json,f/d/fd8d34b142d02ec743a8efefefd2c097961666e9
 „

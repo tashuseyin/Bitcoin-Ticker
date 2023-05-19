@@ -32,8 +32,6 @@ P
  buildSrc/src/main/java/Config.kt,7/5/75f16f089023bb30228b40444adf439c59643b4d
 H
 app/google-services.json,f/d/fd8d34b142d02ec743a8efefefd2c097961666e9
-P
- app/src/main/AndroidManifest.xml,8/c/8c55c3ccc257e5907959013f99656e4c8ec3903e
 „
 Tapp/src/main/java/com/example/bitcoin_ticker/presentation/profile/ProfileFragment.kt,1/d/1d879c47a6db178a84a97408d43bcbbfde9bea4e
 
