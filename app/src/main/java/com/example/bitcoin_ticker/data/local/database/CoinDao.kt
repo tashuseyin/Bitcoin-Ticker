@@ -5,6 +5,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.example.bitcoin_ticker.data.local.entity.CoinListItemEntity
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface CoinDao {
@@ -13,9 +14,9 @@ interface CoinDao {
     suspend fun insertAllCoins(coinList: List<CoinListItemEntity>)
 
     @Query("SELECT * FROM coin_entity_list WHERE name LIKE :query OR symbol LIKE :query")
-    suspend fun getSearchCoinList(query: String): List<CoinListItemEntity>
+    fun getSearchCoinList(query: String): Flow<List<CoinListItemEntity>>
 
     @Query("SELECT * FROM coin_entity_list")
-    suspend fun getAllDatabaseCoins(): List<CoinListItemEntity>
+    fun getAllDatabaseCoins(): Flow<List<CoinListItemEntity>>
 
 }

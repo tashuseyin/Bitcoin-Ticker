@@ -6,6 +6,7 @@ import com.example.bitcoin_ticker.data.remote.model.CoinListItem
 import com.example.bitcoin_ticker.domain.datasource.local.LocalDataSource
 import com.example.bitcoin_ticker.domain.datasource.remote.RemoteDataSource
 import com.example.bitcoin_ticker.domain.repository.CoinRepository
+import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 class CoinRepositoryImpl @Inject constructor(
@@ -25,11 +26,11 @@ class CoinRepositoryImpl @Inject constructor(
         return localDataSource.insertAllCoins(coinList)
     }
 
-    override suspend fun getSearchCoinList(query: String): List<CoinListItemEntity> {
+    override fun getSearchCoinList(query: String): Flow<List<CoinListItemEntity>> {
         return localDataSource.getSearchCoinList(query)
     }
 
-    override suspend fun getAllDatabaseCoins(): List<CoinListItemEntity> {
+    override fun getAllDatabaseCoins(): Flow<List<CoinListItemEntity>> {
         return localDataSource.getAllDatabaseCoins()
     }
 }

@@ -21,7 +21,7 @@ class MainViewModel @Inject constructor(
     }
 
     private fun getCurrentUser() {
-        _isCurrentUser.value = authenticationProxy.getCurrentUser() != null
+        _isCurrentUser.value = false
     }
 
 }
