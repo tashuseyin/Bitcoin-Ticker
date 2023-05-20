@@ -29,11 +29,11 @@ class MainActivity : AppCompatActivity() {
         installSplashScreen()
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         setNavigation()
         checkUser()
         setBottomNavigation()
         controlBottomNavigationVisibility()
+        onItemSelectedListener()
     }
 
     private fun setNavigation() {
@@ -42,8 +42,29 @@ class MainActivity : AppCompatActivity() {
             supportFragmentManager.findFragmentById(R.id.navigation_fragment_activity_main) as NavHostFragment
     }
 
+    private fun onItemSelectedListener() {
+        binding.bottomNavigation.setOnItemSelectedListener {
+            when (it.itemId) {
+                R.id.coinListFragment -> {
+                    changeNavigationStartDestination(R.id.coinListFragment)
+                    true
+                }
+                R.id.favoriteCoinsFragment -> {
+                    changeNavigationStartDestination(R.id.favoriteCoinsFragment)
+                    true
+                }
+                R.id.logout -> {
+                    mainViewModel.onEvent(MainUIEvent.Logout)
+                    changeNavigationStartDestination(R.id.loginFragment)
+                    true
+                }
+                else -> false
+            }
+        }
+    }
+
+
     private fun checkUser() {
-        val graph = navController.navInflater.inflate(R.navigation.nav_graph)
         lifecycleScope.launch {
             mainViewModel.isCurrentUser.collect {
                 changeNavigationStartDestination(

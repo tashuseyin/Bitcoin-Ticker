@@ -68,8 +68,6 @@ p
 [app/src/main/java/com/example/bitcoin_ticker/data/remote/datasource/RemoteDataSourceImpl.kt,5/1/51125443896fb37f9e53753bc62c874ecb8dfd0e
 €
 Papp/src/main/java/com/example/bitcoin_ticker/data/local/database/CoinDatabase.kt,2/9/29672b32181f3ca59199c557e959fd006bbadd65
-~
-Napp/src/main/java/com/example/bitcoin_ticker/presentation/main/MainActivity.kt,f/f/ffb3a31e1be5afef4ea42a2138568f389d72c783
 t
 Dapp/src/main/java/com/example/bitcoin_ticker/domain/mapper/Mapper.kt,8/0/805baffdc9d29010ec10229fc68a49cbbd0961ab
 „

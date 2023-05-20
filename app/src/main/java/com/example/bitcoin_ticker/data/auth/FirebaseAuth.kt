@@ -42,9 +42,9 @@ class FirebaseAuth : AuthenticationProxy {
         }
 
 
-    override fun getCurrentUser(): User {
-        val firebaseUser = Firebase.auth.currentUser
-        return User(firebaseUser?.uid ?: "", firebaseUser?.email ?: "")
+    override fun getCurrentUser(): User? {
+        val firebaseUser = Firebase.auth.currentUser ?: return null
+        return User(firebaseUser.uid, firebaseUser.email ?: "")
     }
 
     override suspend fun logout() {

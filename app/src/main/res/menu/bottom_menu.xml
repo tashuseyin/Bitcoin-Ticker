@@ -3,11 +3,16 @@
 
     <item
         android:id="@+id/coinListFragment"
-        android:icon="@drawable/coin"
+        android:icon="@drawable/coins"
         android:title="@string/coins" />
 
     <item
         android:id="@+id/favoriteCoinsFragment"
         android:icon="@drawable/favorite"
         android:title="@string/favorite_coins" />
+
+    <item
+        android:id="@+id/logout"
+        android:icon="@drawable/logout"
+        android:title="Logout" />
 </menu>
