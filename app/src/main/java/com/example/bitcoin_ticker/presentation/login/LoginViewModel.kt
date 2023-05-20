@@ -66,7 +66,7 @@ class LoginViewModel @Inject constructor(
                     }
                     is Resource.Error -> {
                         _uiState.update {
-                            it.copy(error = result.message ?: "An unexcepted error occurred", isLoading = false)
+                            it.copy(error = result.message ?: "An unexpected error occurred", isLoading = false)
                         }
                     }
                 }

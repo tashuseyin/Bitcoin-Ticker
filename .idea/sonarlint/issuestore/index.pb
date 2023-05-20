@@ -46,8 +46,6 @@ Oapp/src/main/java/com/example/bitcoin_ticker/presentation/login/LoginUIState.kt
 Uapp/src/main/java/com/example/bitcoin_ticker/presentation/register/RegisterUIState.kt,6/e/6e46efc41a20c0c17d19589aef0ed37a8bf40eb2
 Ö
 Uapp/src/main/java/com/example/bitcoin_ticker/presentation/register/RegisterUIEvent.kt,6/1/611139626b54bcf6f8a5471bc0f057e4ef1ccbd0
-Ü
-Vapp/src/main/java/com/example/bitcoin_ticker/presentation/register/RegisterFragment.kt,2/b/2b993a6c36676a9dbe6ed5a37b32fea098db4134
 ~
 Napp/src/main/java/com/example/bitcoin_ticker/data/remote/model/CoinListItem.kt,9/8/9879468e8a0dc15ffc344bc39a2c9400c0ec812e
 p
@@ -60,8 +58,6 @@ aapp/src/main/java/com/example/bitcoin_ticker/presentation/coin_list/adapter/Coi
 `app/src/main/java/com/example/bitcoin_ticker/presentation/favorite_coins/FavoriteCoinsUIState.kt,e/2/e24d764ce8e1dffec0f1e31367e2ad73791705b3
 
 Oapp/src/main/java/com/example/bitcoin_ticker/presentation/login/LoginUIEvent.kt,d/8/d81c4d2ae21794e2b0ef9c6d80178b0292c7c16b
-Ä
-Papp/src/main/java/com/example/bitcoin_ticker/presentation/login/LoginFragment.kt,d/9/d9268f998d0d8f6525ec77c937a2cdbe1b306f27
 á
 Wapp/src/main/java/com/example/bitcoin_ticker/presentation/register/RegisterViewModel.kt,9/e/9e405ba9ef1773cdd5c42fff1ae83686bc2e09c0
 ã
@@ -76,8 +72,6 @@ kapp/src/main/java/com/example/bitcoin_ticker/presentation/favorite_coins/adapte
 happ/src/main/java/com/example/bitcoin_ticker/presentation/favorite_coins/adapter/FavoriteCoinsAdapter.kt,3/2/32ac5c499407501510d070a6129f9af410e1bbab
 p
 @app/src/main/java/com/example/bitcoin_ticker/di/NetworkModule.kt,0/a/0a6e7af77359def412a2b7b2523c188282a93092
-Å
-Qapp/src/main/java/com/example/bitcoin_ticker/presentation/login/LoginViewModel.kt,5/8/589bec87a7af5c43bacb1e95ab1ec1d896d917be
 ë
 aapp/src/main/java/com/example/bitcoin_ticker/presentation/favorite_coins/FavoriteCoinsFragment.kt,f/9/f9ab0737e6449cc11da0bcba1bfba563ef8a8b05
 å

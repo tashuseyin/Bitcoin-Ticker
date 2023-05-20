@@ -5,15 +5,16 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.bitcoin_ticker.R
+import com.example.bitcoin_ticker.core.showSnackbar
 import com.example.bitcoin_ticker.databinding.FragmentLoginBinding
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
@@ -41,7 +42,7 @@ class LoginFragment : Fragment() {
 
     private fun navigate() {
         binding.registerText.setOnClickListener {
-           findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
+            findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
         }
     }
 
@@ -49,10 +50,22 @@ class LoginFragment : Fragment() {
         lifecycleScope.launch {
             loginViewModel.uiState.collect { uiState ->
                 if (uiState.loginResult != null) {
+                    showSnackbar(
+                        requireContext(),
+                        requireView(),
+                        getString(uiState.loginResult.statusMessage),
+                        true
+                    )
+                    delay(200)
                     findNavController().navigate(R.id.action_loginFragment_to_coinListFragment)
                 }
                 if (uiState.error.isNotBlank()) {
-                    Toast.makeText(context, uiState.error, Toast.LENGTH_SHORT).show()
+                    showSnackbar(
+                        requireContext(),
+                        requireView(),
+                        getString(uiState.error.toInt()),
+                        false
+                    )
                 }
                 binding.progressBar.isVisible = uiState.isLoading
             }
@@ -78,7 +91,6 @@ class LoginFragment : Fragment() {
             loginViewModel.onEvent(LoginUIEvent.Login)
         }
     }
-
 
 
     override fun onDestroyView() {

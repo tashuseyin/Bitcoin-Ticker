@@ -11,6 +11,7 @@ import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import com.example.bitcoin_ticker.R
 import com.example.bitcoin_ticker.core.observeOnce
 import com.example.bitcoin_ticker.databinding.FragmentCoinListBinding
 import com.example.bitcoin_ticker.presentation.coin_list.adapter.CoinListAdapter
@@ -78,6 +79,9 @@ class CoinListFragment : Fragment() {
     private fun observeSearchResult() {
         coinListViewModel.searchResult.observe(viewLifecycleOwner) { searchList ->
             coinListAdapter.submitList(searchList)
+            if (searchList.isEmpty()) {
+                binding.errorText.text = getString(R.string.search_empty_message)
+            }
         }
     }
 

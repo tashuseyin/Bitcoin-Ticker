@@ -36,4 +36,5 @@
     <string name="price_change_percetange_in_24_hours">Price Change Percetange in 24 hours</string>
     <string name="description">Description</string>
     <string name="empty_favorite_coins">No Favorite Coins Yet</string>
+    <string name="search_empty_message">Search Result is Empty</string>
 </resources>

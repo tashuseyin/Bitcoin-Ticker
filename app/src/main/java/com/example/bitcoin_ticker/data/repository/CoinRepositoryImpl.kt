@@ -27,7 +27,7 @@ class CoinRepositoryImpl @Inject constructor(
     }
 
     override fun getSearchCoinList(query: String): Flow<List<CoinListItemEntity>> {
-        return localDataSource.getSearchCoinList(query)
+        return localDataSource.getSearchCoinList("%$query%")
     }
 
     override fun getAllDatabaseCoins(): Flow<List<CoinListItemEntity>> {
