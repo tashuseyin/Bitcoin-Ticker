@@ -75,8 +75,8 @@ class FirebaseRepositoryImpl @Inject constructor(
     override fun checkCoinFavorite(id: String): Flow<Resource<Boolean>> = flow {
         emit(Resource.Loading())
         try {
-            authenticationProxy.getCurrentUser()?.id?.let { id ->
-                val snapshot = firebaseFireStore.collection(FAVORITES).document(id)
+            authenticationProxy.getCurrentUser()?.id?.let {
+                val snapshot = firebaseFireStore.collection(FAVORITES).document(it)
                     .collection(COINS).get().await()
 
                 val data = snapshot.toObjects(FavoriteCoin::class.java)

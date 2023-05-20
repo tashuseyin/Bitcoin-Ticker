@@ -37,4 +37,6 @@
     <string name="description">Description</string>
     <string name="empty_favorite_coins">No Favorite Coins Yet</string>
     <string name="search_empty_message">Search Result is Empty</string>
+    <string name="add_favorite_message">Successfully added to favorites</string>
+    <string name="remove_favorite_message">Successfully deleted from favorites</string>
 </resources>

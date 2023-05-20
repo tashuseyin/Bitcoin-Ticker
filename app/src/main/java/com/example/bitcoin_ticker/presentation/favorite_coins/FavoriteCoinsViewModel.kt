@@ -5,6 +5,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.bitcoin_ticker.core.Resource
 import com.example.bitcoin_ticker.domain.use_case.coins.GetFavoritesUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -17,10 +18,6 @@ class FavoriteCoinsViewModel @Inject constructor(
     private val _uiState = MutableStateFlow(FavoriteCoinsUIState())
     val uiState: StateFlow<FavoriteCoinsUIState> = _uiState
 
-    init {
-        onEvent(FavoriteCoinsUIEvent.LoadFavoriteCoins)
-    }
-
     fun onEvent(event: FavoriteCoinsUIEvent) {
         when (event) {
             is FavoriteCoinsUIEvent.LoadFavoriteCoins -> {
@@ -30,27 +27,23 @@ class FavoriteCoinsViewModel @Inject constructor(
     }
 
     private fun getFavoriteCoins() {
-        viewModelScope.launch {
+        viewModelScope.launch(Dispatchers.IO) {
             getFavoritesUseCase.invoke().collect { result ->
                 when (result) {
                     is Resource.Loading -> {
-                        _uiState.update { it.copy(isLoading = true) }
+                        _uiState.value = FavoriteCoinsUIState(isLoading = true)
                     }
                     is Resource.Success -> {
-                        _uiState.update {
-                            it.copy(
-                                coins = result.data ?: emptyList(),
-                                isLoading = false
-                            )
-                        }
+                        _uiState.value = FavoriteCoinsUIState(
+                            coins = result.data ?: emptyList(),
+                            isShowErrorLayout = result.data?.isEmpty() == true
+                        )
                     }
                     is Resource.Error -> {
-                        _uiState.update {
-                            it.copy(
-                                error = result.message.toString(),
-                                isLoading = false
-                            )
-                        }
+                        _uiState.value = FavoriteCoinsUIState(
+                            error = result.message.toString(),
+                            isShowErrorLayout = true
+                        )
                     }
                 }
             }

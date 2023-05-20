@@ -7,8 +7,6 @@ import com.example.bitcoin_ticker.domain.mapper.toUIModel
 import com.example.bitcoin_ticker.domain.model.CoinListItemUIModel
 import com.example.bitcoin_ticker.domain.repository.CoinRepository
 import com.example.bitcoin_ticker.domain.use_case.coins.GetCoinListUseCase
-import com.example.bitcoin_ticker.domain.use_case.coins.GetSearchCoinListUseCase
-import com.example.bitcoin_ticker.domain.use_case.coins.InsertAllCoinsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.*
@@ -18,9 +16,7 @@ import javax.inject.Inject
 @HiltViewModel
 class CoinListViewModel @Inject constructor(
     private val getCoinListUseCase: GetCoinListUseCase,
-    private val coinRepository: CoinRepository,
-    private val getSearchCoinListUseCase: GetSearchCoinListUseCase,
-    private val insertAllCoinsUseCase: InsertAllCoinsUseCase
+    private val coinRepository: CoinRepository
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow(CoinListUIState())
@@ -53,7 +49,7 @@ class CoinListViewModel @Inject constructor(
 
     private fun insertCoinItemList(coinListItemUIModel: List<CoinListItemUIModel>) =
         viewModelScope.launch(Dispatchers.IO) {
-            insertAllCoinsUseCase.invoke(coinListItemUIModel.toEntity())
+            coinRepository.insertAllCoins(coinListItemUIModel.toEntity())
         }
 
     private fun getCoins() {
