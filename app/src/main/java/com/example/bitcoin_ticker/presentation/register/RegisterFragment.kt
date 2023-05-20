@@ -40,6 +40,7 @@ class RegisterFragment : Fragment() {
         observeUI()
     }
 
+
     private fun collectUIState() {
         lifecycleScope.launch {
             registerViewModel.uiState.collect { uiState ->
@@ -94,6 +95,9 @@ class RegisterFragment : Fragment() {
         }
         binding.registerButton.setOnClickListener {
             registerViewModel.onEvent(RegisterUIEvent.Register)
+        }
+        binding.loginText.setOnClickListener {
+            findNavController().navigate(RegisterFragmentDirections.actionRegisterFragmentToLoginFragment())
         }
     }
 

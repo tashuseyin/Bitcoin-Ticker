@@ -1,142 +1,150 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true">
 
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_16"
-        android:layout_marginTop="@dimen/margin_24"
-        android:layout_marginEnd="@dimen/margin_16"
-        android:layout_marginBottom="@dimen/margin_24"
-        android:orientation="vertical"
-        tools:context=".presentation.login.LoginFragment">
-
+        android:layout_height="match_parent">
 
         <ProgressBar
             android:id="@+id/progress_bar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:elevation="1dp"
-            android:indeterminateTint="@color/purple_600" />
-
-        <TextView
-            android:id="@+id/welcome_text"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/inter_medium"
-            android:text="@string/welcome"
-            android:textColor="@color/gray_900"
-            android:textSize="32sp" />
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/login_email_input_layout"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_24"
-            android:focusable="false"
-            android:focusableInTouchMode="true"
-            android:hint="@string/email"
-            android:textColorHint="@color/gray_600"
-            app:boxStrokeWidth="1dp"
-            app:boxStrokeWidthFocused="1dp"
-            app:boxStrokeColor="@color/purple_600"
-            app:boxCornerRadiusBottomEnd="@dimen/margin_8"
-            app:boxCornerRadiusBottomStart="@dimen/margin_8"
-            app:boxCornerRadiusTopEnd="@dimen/margin_8"
-            app:boxCornerRadiusTopStart="@dimen/margin_8">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/login_email_edittext"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:drawablePadding="@dimen/margin_16"
-                android:inputType="textEmailAddress"
-                android:padding="@dimen/margin_16"
-                android:textColor="@color/gray_900"
-                app:boxStrokeColor="@color/purple_600"/>
-        </com.google.android.material.textfield.TextInputLayout>
-
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/login_password_input_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-            android:layout_marginTop="@dimen/margin_16"
-            android:focusable="false"
-            android:focusableInTouchMode="true"
-            android:hint="@string/password"
-            android:textColorHint="@color/gray_600"
-            app:boxStrokeWidth="1dp"
-            app:boxStrokeWidthFocused="1dp"
-            app:boxCornerRadiusBottomEnd="@dimen/margin_8"
-            app:boxCornerRadiusBottomStart="@dimen/margin_8"
-            app:boxCornerRadiusTopEnd="@dimen/margin_8"
-            app:boxCornerRadiusTopStart="@dimen/margin_8">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/login_password_edittext"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:drawablePadding="@dimen/margin_16"
-                android:inputType="textEmailAddress"
-                android:padding="@dimen/margin_16"
-                android:textColor="@color/gray_900" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <Space
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_weight="1" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/login_button"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:background="@drawable/custom_button"
-            android:fontFamily="@font/inter_medium"
-            android:text="@string/login"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            android:enabled="false"
-            app:layout_constraintBottom_toTopOf="@+id/linear_layout"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linear_layout" />
-
-        <LinearLayout
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="@dimen/margin_16"
-            android:orientation="horizontal">
+            android:indeterminateTint="@color/purple_600"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/margin_16"
+            android:layout_marginTop="@dimen/margin_24"
+            android:layout_marginEnd="@dimen/margin_16"
+            android:layout_marginBottom="@dimen/margin_24"
+            android:orientation="vertical"
+            tools:context=".presentation.login.LoginFragment">
 
             <TextView
-                android:id="@+id/you_already_have_an_account"
-                android:layout_width="wrap_content"
+                android:id="@+id/welcome_text"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/inter_regular"
-                android:text="@string/do_not_have_an_account_message"
-                android:textColor="@color/gray_900"
-                android:textSize="14sp" />
-
-            <TextView
-                android:id="@+id/register_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_4"
                 android:fontFamily="@font/inter_medium"
-                android:text="@string/register"
-                android:textColor="@color/purple_600"
-                android:textSize="14sp" />
+                android:text="@string/welcome"
+                android:textColor="@color/gray_900"
+                android:textSize="32sp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/login_email_input_layout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_24"
+                android:focusable="false"
+                android:focusableInTouchMode="true"
+                android:hint="@string/email"
+                android:textColorHint="@color/gray_600"
+                app:boxCornerRadiusBottomEnd="@dimen/margin_8"
+                app:boxCornerRadiusBottomStart="@dimen/margin_8"
+                app:boxCornerRadiusTopEnd="@dimen/margin_8"
+                app:boxCornerRadiusTopStart="@dimen/margin_8"
+                app:boxStrokeColor="@color/purple_600"
+                app:boxStrokeWidth="1dp"
+                app:boxStrokeWidthFocused="1dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/login_email_edittext"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:drawablePadding="@dimen/margin_16"
+                    android:inputType="textEmailAddress"
+                    android:padding="@dimen/margin_16"
+                    android:textColor="@color/gray_900"
+                    app:boxStrokeColor="@color/purple_600" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/login_password_input_layout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_16"
+                android:focusable="false"
+                android:focusableInTouchMode="true"
+                android:hint="@string/password"
+                android:textColorHint="@color/gray_600"
+                app:boxCornerRadiusBottomEnd="@dimen/margin_8"
+                app:boxCornerRadiusBottomStart="@dimen/margin_8"
+                app:boxCornerRadiusTopEnd="@dimen/margin_8"
+                app:boxCornerRadiusTopStart="@dimen/margin_8"
+                app:boxStrokeWidth="1dp"
+                app:boxStrokeWidthFocused="1dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/login_password_edittext"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:drawablePadding="@dimen/margin_16"
+                    android:inputType="textEmailAddress"
+                    android:padding="@dimen/margin_16"
+                    android:textColor="@color/gray_900" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/login_button"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/custom_button"
+                android:enabled="false"
+                android:fontFamily="@font/inter_medium"
+                android:text="@string/login"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toTopOf="@+id/linear_layout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linear_layout" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/margin_16"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/you_already_have_an_account"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter_regular"
+                    android:text="@string/do_not_have_an_account_message"
+                    android:textColor="@color/gray_900"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/register_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_4"
+                    android:fontFamily="@font/inter_medium"
+                    android:text="@string/register"
+                    android:textColor="@color/purple_600"
+                    android:textSize="14sp" />
+            </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
-</ScrollView>
+    </FrameLayout>
+</androidx.core.widget.NestedScrollView>

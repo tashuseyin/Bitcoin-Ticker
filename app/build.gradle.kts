@@ -103,9 +103,6 @@ dependencies {
     implementation(Libraries.coroutinesAndroid)
     implementation(Libraries.coroutinesPlayService)
 
-    //datastore
-    implementation(Libraries.dataStore)
-
     //room
     implementation(Libraries.room)
     kapt(Libraries.roomKapt)

@@ -16,11 +16,11 @@ import javax.inject.Inject
 
 @HiltViewModel
 class RegisterViewModel @Inject constructor(
-    private val emailValidation: EmailValidation,
-    private val passwordValidation: PasswordValidation,
     private val registerUseCase: RegisterUseCase
 ) : ViewModel() {
 
+    private val emailValidation = EmailValidation()
+    private val passwordValidation = PasswordValidation()
 
     private val _uiState = MutableStateFlow(RegisterUIState())
     val uiState: StateFlow<RegisterUIState> = _uiState
@@ -28,8 +28,7 @@ class RegisterViewModel @Inject constructor(
     private val _registerButtonEnabled: MutableLiveData<Boolean> = MutableLiveData(false)
     val registerButtonEnabled: LiveData<Boolean> = _registerButtonEnabled
 
-    private val _passwordRules: MutableLiveData<List<PasswordRule>> =
-        MutableLiveData(passwordValidation.rules)
+    private val _passwordRules: MutableLiveData<List<PasswordRule>> = MutableLiveData(passwordValidation.rules)
     val passwordRules: LiveData<List<PasswordRule>> = _passwordRules
 
 
@@ -61,7 +60,7 @@ class RegisterViewModel @Inject constructor(
 
     private fun enteringPassword(password: String) {
         _uiState.update { it.copy(password = password) }
-        passwordValidation.getRules(password)
+         passwordValidation.getRules(password)
         _passwordRules.value = passwordValidation.rules
         checkRegisterButtonEnabled()
     }
