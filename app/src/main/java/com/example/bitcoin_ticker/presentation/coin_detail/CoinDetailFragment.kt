@@ -43,7 +43,7 @@ class CoinDetailFragment : Fragment() {
             coinDetailViewModel.onEvent(CoinDetailUIEvent.OnClickFavoriteButton)
         }
         binding.closeIcon.setOnClickListener {
-            findNavController().navigate(CoinDetailFragmentDirections.actionCoinDetailFragmentToCoinListFragment())
+            findNavController().popBackStack()
         }
     }
 
@@ -57,23 +57,9 @@ class CoinDetailFragment : Fragment() {
                     binding.errorText.text = it.error
                 }
                 binding.progressBar.isVisible = it.isLoading
-            }
-        }
 
-        coinDetailViewModel.favoriteCoinStatus.observe(viewLifecycleOwner) {
-            when (it) {
-                is Resource.Loading -> {
-                    binding.progressBar.isVisible = true
-                }
-                is Resource.Success -> {
-                    binding.progressBar.isVisible = false
-                    it.data?.let { bool ->
-                        updateSaveIcon(bool)
-                    }
-                }
-                is Resource.Error -> {
-                    binding.progressBar.isVisible = false
-                    binding.errorText.text = it.message
+                it.isFavoriteCoin?.let { bool ->
+                    updateSaveIcon(bool)
                 }
             }
         }

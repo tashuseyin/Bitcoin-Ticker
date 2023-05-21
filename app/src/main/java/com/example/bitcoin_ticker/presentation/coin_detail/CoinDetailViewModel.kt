@@ -9,7 +9,6 @@ import com.example.bitcoin_ticker.domain.use_case.coins.CheckFavoriteUseCase
 import com.example.bitcoin_ticker.domain.use_case.coins.RemoveFavoriteUseCase
 import com.example.bitcoin_ticker.domain.use_case.coins.GetCoinDetailUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
@@ -27,12 +26,6 @@ class CoinDetailViewModel @Inject constructor(
 
     private val _uiState = MutableStateFlow(CoinDetailUIState())
     val uiState: StateFlow<CoinDetailUIState> = _uiState
-
-    private val _favoriteCoinStatus = MutableLiveData<Resource<Boolean?>>()
-    val favoriteCoinStatus: LiveData<Resource<Boolean?>> get() = _favoriteCoinStatus
-
-    private val _isCheckFavoriteCoin = MutableLiveData<Resource<Boolean?>>()
-    val isCheckFavoriteCoin: LiveData<Resource<Boolean?>> get() = _isCheckFavoriteCoin
 
     init {
         savedStateHandle.get<String>(Constant.COIN_ID)?.let {
@@ -57,7 +50,7 @@ class CoinDetailViewModel @Inject constructor(
     }
 
     private fun favoriteButtonClick() {
-        _favoriteCoinStatus.value?.data.let {
+        _uiState.value.isFavoriteCoin.let {
             if (it!!)
                 removeFavoriteCoin()
             else
@@ -89,16 +82,16 @@ class CoinDetailViewModel @Inject constructor(
     }
 
     private fun checkFavoriteCoin(coinId: String) = viewModelScope.launch {
-        checkFavoriteUseCase.invoke(coinId).collect {
-            when (it) {
+        checkFavoriteUseCase.invoke(coinId).collect { result ->
+            when (result) {
                 is Resource.Loading -> {
-                    _favoriteCoinStatus.value = Resource.Loading()
+                    _uiState.update { it.copy(isLoading = true) }
                 }
                 is Resource.Success -> {
-                    _favoriteCoinStatus.value = Resource.Success(it.data)
+                    _uiState.update { it.copy(isFavoriteCoin = result.data, isLoading = false) }
                 }
                 is Resource.Error -> {
-                    _favoriteCoinStatus.value = Resource.Error(it.message.toString())
+                    _uiState.update { it.copy(error = result.message.toString(), isLoading = false) }
                 }
             }
         }
@@ -106,16 +99,16 @@ class CoinDetailViewModel @Inject constructor(
 
     private fun addFavoriteCoin() {
         viewModelScope.launch {
-            addFavoriteUseCase.invoke(_uiState.value.coin.toFavoriteCoin()).collect {
-                when (it) {
+            addFavoriteUseCase.invoke(_uiState.value.coin.toFavoriteCoin()).collect { result ->
+                when (result) {
                     is Resource.Loading -> {
-                        _favoriteCoinStatus.value = Resource.Loading()
+                        _uiState.update { it.copy(isLoading = true) }
                     }
                     is Resource.Success -> {
-                        _favoriteCoinStatus.value = Resource.Success(true)
+                        _uiState.update { it.copy(isFavoriteCoin = true, isLoading = false) }
                     }
                     is Resource.Error -> {
-                        _favoriteCoinStatus.value = Resource.Error(it.message.toString())
+                        _uiState.update { it.copy(error = result.message.toString(), isLoading = false) }
                     }
                 }
             }
@@ -124,16 +117,16 @@ class CoinDetailViewModel @Inject constructor(
 
     private fun removeFavoriteCoin() = viewModelScope.launch {
         if (!_uiState.value.coin?.id.isNullOrEmpty()) {
-            removeFavoriteUseCase.invoke(_uiState.value.coin?.id!!).collect {
-                when (it) {
+            removeFavoriteUseCase.invoke(_uiState.value.coin?.id!!).collect { result ->
+                when (result) {
                     is Resource.Loading -> {
-                        _favoriteCoinStatus.value = Resource.Loading()
+                        _uiState.update { it.copy(isLoading = true) }
                     }
                     is Resource.Success -> {
-                        _favoriteCoinStatus.value = Resource.Success(false)
+                        _uiState.update { it.copy(isFavoriteCoin = false, isLoading = false) }
                     }
                     is Resource.Error -> {
-                        _favoriteCoinStatus.value = Resource.Error(it.message.toString())
+                        _uiState.update { it.copy(error = result.message.toString(), isLoading = false) }
                     }
                 }
             }
