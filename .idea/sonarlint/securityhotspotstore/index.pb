@@ -120,3 +120,17 @@ D
 Rapp/src/main/java/com/example/bitcoin_ticker/data/repository/CoinRepositoryImpl.kt,5/1/5165969c38425fca874ba00bb0bbc8bf50570896
 €
 Papp/src/main/java/com/example/bitcoin_ticker/domain/repository/CoinRepository.kt,6/3/63ce39eed0ac75cd11ca316cca45a7b4a447580d
+Š
+Zapp/src/main/java/com/example/bitcoin_ticker/presentation/coin_detail/CoinDetailUIState.kt,8/8/88f11eff9c2904691ed918253d2dad4c206ab7aa
+Œ
+\app/src/main/java/com/example/bitcoin_ticker/presentation/coin_detail/CoinDetailViewModel.kt,5/2/52aad6a8ffceb58f2882f61bb110160c0b98e320
+t
+Dapp/src/main/java/com/example/bitcoin_ticker/data/auth/model/User.kt,4/e/4ec80d40bb9eea2f8cf6edd726c4fc80caea3165
+„
+Tapp/src/main/java/com/example/bitcoin_ticker/domain/repository/FirebaseRepository.kt,2/e/2ec9c3f35a54fe9852fe1411004143b29963ef47
+{
+Kapp/src/main/java/com/example/bitcoin_ticker/data/auth/enums/LoginResult.kt,d/6/d62468802a80d41f97f4b28a45dcb2784736fcd3
+~
+Napp/src/main/java/com/example/bitcoin_ticker/data/auth/enums/RegisterResult.kt,7/a/7a76df177565d2104972ae807edf412b2bb7971e
+
+Oapp/src/main/java/com/example/bitcoin_ticker/domain/auth/AuthenticationProxy.kt,e/6/e63a78b6364c852134cf8718d325db7cf7e65e57
