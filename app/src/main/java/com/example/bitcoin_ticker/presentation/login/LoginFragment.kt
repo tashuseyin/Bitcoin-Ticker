@@ -49,11 +49,11 @@ class LoginFragment : Fragment() {
     private fun collectUIState() {
         lifecycleScope.launch {
             loginViewModel.uiState.collect { uiState ->
-                if (uiState.loginResult != null) {
+                if (uiState.authResponse != null) {
                     showSnackbar(
                         requireContext(),
                         requireView(),
-                        getString(uiState.loginResult.statusMessage),
+                        getString(uiState.authResponse.message),
                         true
                     )
                     delay(200)

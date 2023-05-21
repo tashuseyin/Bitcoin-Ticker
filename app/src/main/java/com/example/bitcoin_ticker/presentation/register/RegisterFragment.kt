@@ -44,8 +44,8 @@ class RegisterFragment : Fragment() {
     private fun collectUIState() {
         lifecycleScope.launch {
             registerViewModel.uiState.collect { uiState ->
-                if (uiState.registerResult != null) {
-                    showSnackbar(requireContext(),requireView(), getString(uiState.registerResult.statusMessage), true)
+                if (uiState.authResponse != null) {
+                    showSnackbar(requireContext(),requireView(), getString(uiState.authResponse.message), true)
                     delay(200)
                     findNavController().navigate(R.id.action_registerFragment_to_coinListFragment)
                 }

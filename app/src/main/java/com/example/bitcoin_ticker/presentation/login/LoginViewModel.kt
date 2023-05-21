@@ -62,7 +62,7 @@ class LoginViewModel @Inject constructor(
                         _uiState.update { it.copy(isLoading = true) }
                     }
                     is Resource.Success -> {
-                        _uiState.update { it.copy(loginResult = result.data, isLoading = false) }
+                        _uiState.update { it.copy(authResponse = result.data, isLoading = false) }
                     }
                     is Resource.Error -> {
                         _uiState.update {

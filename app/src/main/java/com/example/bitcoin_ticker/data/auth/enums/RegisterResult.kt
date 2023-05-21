@@ -1,4 +1,4 @@
-package com.example.bitcoin_ticker.data.auth.model
+package com.example.bitcoin_ticker.data.auth.enums
 
 import com.example.bitcoin_ticker.R
 
