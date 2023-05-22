@@ -23,7 +23,8 @@ class CoinListViewModel @Inject constructor(
     val uiState: StateFlow<CoinListUIState> = _uiState
 
     // Database
-    val coinList: LiveData<List<CoinListItemUIModel>> = coinRepository.getAllDatabaseCoins().map { it.toUIModel() }.asLiveData()
+    val coinList: LiveData<List<CoinListItemUIModel>> =
+        coinRepository.getAllDatabaseCoins().map { it.toUIModel() }.asLiveData()
 
     private val _searchQuery = MutableLiveData<String>()
 
@@ -56,21 +57,15 @@ class CoinListViewModel @Inject constructor(
         getCoinListUseCase().onEach { result ->
             when (result) {
                 is Resource.Loading -> {
-                    _uiState.update { it.copy(isLoading = true) }
+                    _uiState.value = CoinListUIState(isLoading = true)
                 }
                 is Resource.Success -> {
-                    _uiState.update {
-                        it.copy(coins = result.data ?: emptyList() ,isLoading = false)
-                    }
+                    _uiState.value = CoinListUIState(coins = result.data ?: emptyList())
                     insertCoinItemList(result.data ?: emptyList())
                 }
                 is Resource.Error -> {
-                    _uiState.update {
-                        it.copy(
-                            error = result.message ?: "An unexpected error occurred",
-                            isLoading = false
-                        )
-                    }
+                    _uiState.value =
+                        CoinListUIState(error = result.message ?: "An unexpected error occurred")
                 }
             }
         }.launchIn(viewModelScope)

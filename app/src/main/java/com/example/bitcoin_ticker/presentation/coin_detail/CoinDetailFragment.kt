@@ -67,6 +67,7 @@ class CoinDetailFragment : Fragment() {
         }
     }
 
+
     private fun updateSaveIcon(bool: Boolean) {
         if (bool) {
             binding.saveIcon.setImageResource(R.drawable.bookmark_fill)
@@ -81,7 +82,8 @@ class CoinDetailFragment : Fragment() {
             coinName.text = coin?.name ?: Constant.NOTHING
             coinSymbol.text = coin?.symbol ?: Constant.NOTHING
             coinImage.loadImageView(coin?.image?.large, placeholderProgressBar(requireContext()))
-            coinPrice.text = "$" + String.format("%.6s", coin?.marketData?.currentPrice?.usd.toString())
+            coinPrice.text =
+                "$" + String.format("%.6s", coin?.marketData?.currentPrice?.usd.toString())
             convertPricePercentage(coin?.marketData?.priceChangePercentage24h)
             hashingAlgorithm.text = coin?.hashingAlgorithm ?: Constant.NOTHING
             description.text = coin?.description?.en ?: Constant.NOTHING

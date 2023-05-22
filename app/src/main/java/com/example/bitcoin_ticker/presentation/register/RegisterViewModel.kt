@@ -28,7 +28,8 @@ class RegisterViewModel @Inject constructor(
     private val _registerButtonEnabled: MutableLiveData<Boolean> = MutableLiveData(false)
     val registerButtonEnabled: LiveData<Boolean> = _registerButtonEnabled
 
-    private val _passwordRules: MutableLiveData<List<PasswordRule>> = MutableLiveData(passwordValidation.rules)
+    private val _passwordRules: MutableLiveData<List<PasswordRule>> =
+        MutableLiveData(passwordValidation.rules)
     val passwordRules: LiveData<List<PasswordRule>> = _passwordRules
 
 
@@ -60,7 +61,7 @@ class RegisterViewModel @Inject constructor(
 
     private fun enteringPassword(password: String) {
         _uiState.update { it.copy(password = password) }
-         passwordValidation.getRules(password)
+        passwordValidation.getRules(password)
         _passwordRules.value = passwordValidation.rules
         checkRegisterButtonEnabled()
     }
@@ -70,18 +71,15 @@ class RegisterViewModel @Inject constructor(
             registerUseCase(_uiState.value.email, _uiState.value.password).collect { result ->
                 when (result) {
                     is Resource.Loading -> {
-                        _uiState.update { it.copy(isLoading = true) }
+                        _uiState.value = RegisterUIState(isLoading = true)
                     }
                     is Resource.Success -> {
-                        _uiState.update { it.copy(authResponse = result.data, isLoading = false) }
+                        _uiState.value = RegisterUIState(authResponse = result.data)
                     }
                     is Resource.Error -> {
-                        _uiState.update {
-                            it.copy(
-                                error = result.message ?: "An unexcepted error occurred",
-                                isLoading = false
-                            )
-                        }
+                        _uiState.value = RegisterUIState(
+                            error = result.message ?: "An unexpected error occurred",
+                        )
                     }
                 }
             }

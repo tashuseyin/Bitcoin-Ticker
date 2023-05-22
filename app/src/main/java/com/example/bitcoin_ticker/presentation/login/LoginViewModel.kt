@@ -4,13 +4,14 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.bitcoin_ticker.core.Constant
 import com.example.bitcoin_ticker.core.Resource
+import com.example.bitcoin_ticker.core.showSnackbar
 import com.example.bitcoin_ticker.core.validation.EmailValidation
 import com.example.bitcoin_ticker.domain.use_case.auth.LoginUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -22,6 +23,13 @@ class LoginViewModel @Inject constructor(
 
     private val _uiState = MutableStateFlow(LoginUIState())
     val uiState: StateFlow<LoginUIState> = _uiState
+
+    private val _password: MutableLiveData<String> = MutableLiveData(Constant.EMPTY_STRING)
+    val password: LiveData<String> = _password
+
+
+    private val _email: MutableLiveData<String> = MutableLiveData(Constant.EMPTY_STRING)
+    val email: LiveData<String> = _email
 
     private val _loginButtonEnabled: MutableLiveData<Boolean> = MutableLiveData(false)
     val loginButtonEnabled: LiveData<Boolean> = _loginButtonEnabled
@@ -41,36 +49,37 @@ class LoginViewModel @Inject constructor(
     }
 
     private fun checkLoginButtonEnabled() {
-        _loginButtonEnabled.value = emailValidation.isValidEmail(_uiState.value.email)
+        _loginButtonEnabled.value = emailValidation.isValidEmail(_email.value.toString())
     }
 
     private fun enteringEmail(email: String) {
-        _uiState.update { it.copy(email = email) }
+        _email.value = email
         checkLoginButtonEnabled()
     }
 
     private fun enteringPassword(password: String) {
-        _uiState.update { it.copy(password = password) }
+        _password.value = password
     }
 
 
     private fun login() {
         viewModelScope.launch {
-            loginUseCase.invoke(_uiState.value.email, _uiState.value.password).collect { result ->
-                when (result) {
-                    is Resource.Loading -> {
-                        _uiState.update { it.copy(isLoading = true) }
-                    }
-                    is Resource.Success -> {
-                        _uiState.update { it.copy(authResponse = result.data, isLoading = false) }
-                    }
-                    is Resource.Error -> {
-                        _uiState.update {
-                            it.copy(error = result.message ?: "An unexpected error occurred", isLoading = false)
+            loginUseCase.invoke(_email.value.toString(), _password.value.toString())
+                .collect { result ->
+                    when (result) {
+                        is Resource.Loading -> {
+                            _uiState.value = LoginUIState(isLoading = true)
+                        }
+                        is Resource.Success -> {
+                            _uiState.value = LoginUIState(authResponse = result.data)
+                        }
+                        is Resource.Error -> {
+                            _uiState.value = LoginUIState(
+                                error = result.message ?: "An unexpected error occurred"
+                            )
                         }
                     }
                 }
-            }
         }
     }
 }

@@ -46,15 +46,21 @@ class CoinDetailViewModel @Inject constructor(
             is CoinDetailUIEvent.CheckFavorite -> {
                 checkFavoriteCoin(event.coinId)
             }
+            is CoinDetailUIEvent.AddFavoriteCoin -> {
+                addFavoriteCoin()
+            }
+            is CoinDetailUIEvent.RemoveFavoriteCoin -> {
+                removeFavoriteCoin()
+            }
         }
     }
 
     private fun favoriteButtonClick() {
         _uiState.value.isFavoriteCoin.let {
             if (it!!)
-                removeFavoriteCoin()
+                onEvent(CoinDetailUIEvent.RemoveFavoriteCoin)
             else
-                addFavoriteCoin()
+                onEvent(CoinDetailUIEvent.AddFavoriteCoin)
         }
     }
 
